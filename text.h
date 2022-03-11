@@ -3,15 +3,18 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
+#include "image.h"
 
 typedef struct
 {
     TTF_Font *fonttext;
     SDL_Color fontcolor;
     SDL_Surface *txt;
-    SDL_Rect postext;
+    SDL_Rect postext,postext1;
     int police;
 } text;
 
-void init_text(text t,char font[],char txt[],int x,int y,int r,int g,int b);
+
+void afficher_text(text t,char txt[],SDL_Surface* fenetre,int x,int y,int w,int h);
+void init_text(text *t,char font[],char txt[],int police,int x,int y,int r,int g,int b);
 #endif
