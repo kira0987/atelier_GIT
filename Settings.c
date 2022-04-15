@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include "menu_button.h"
+#include "image.h"
 #include "Settings.h"
 #include <SDL/SDL_image.h>
 #include "text.h"

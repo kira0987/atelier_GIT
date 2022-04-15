@@ -5,34 +5,39 @@
 #include <SDL/SDL_ttf.h>
 
 
+
 typedef struct 
 {
-    //sprite personne
-        SDL_Surface *sprite;
-        SDL_Rect possprite;
-        int direction;//(0:droite||1:gauche)
-    //position ecran
-        SDL_Rect posscreen;
-    //score personne
-        SDL_Surface *score;
-        SDL_Rect posscore;
-        TTF_Font *font_score;
-        SDL_Color scorecolor;
-    //vie personne
-        SDL_Surface *vies;
-        SDL_Rect posvies;
-        TTF_Font *font_vies;
-        SDL_Color viecolor;
-    //helthbar personne
-        SDL_Surface *healthbar;
-        SDL_Rect posbar;
-    //mouvement et acceleration
-        double vitesse,acceleration;
+    SDL_Surface *img;
+    SDL_Rect pos_screen,pos_sprite;
+    int level,timer,init_time;
 
-}personne;
+}animation;
 
-void initPerso(personne *p);
-void afficherPerso(personne p,SDL_Surface *screen);
-void animerPerso(personne *p);
-void moveperso(personne *p,Uint32 dt);
+typedef struct
+{
+    SDL_Surface *img;
+    SDL_Surface *img1;
+    SDL_Rect pos1,pos2,pos3;
+    Mix_Chunk *effet;
+    Mix_Music *music;
+    int volume,mode,scroll,time,init_time,direction,collision;
+    double vitesse,acceleration;
+}perso;
+
+
+
+
+void init_perso(perso* b,int x,int y,char name[]);
+void init_perso_animation(animation* animated_object,char name[],int x,int y,int w,int h);
+void standing_animation(background *bg,perso* animated_mouvement,animation *mouvement,SDL_Surface* screen,int n);
+void sprint_perso(perso *p);
+void slow_perso(perso *p);
+void auto_slow_perso(perso *p);
+void move_perso(background b,perso *p,SDL_Surface* screen);
+void perso_jump(background b,perso *p,SDL_Surface *screen);
+void gravity(perso *p,background b,SDL_Surface *screen);
+void liberer_perso(perso *p);
+
+
 #endif

@@ -15,14 +15,8 @@ typedef struct
     SDL_Rect pos2;
     SDL_Rect pos3;
     SDL_Surface* img;
-}image;
 
-typedef struct 
-{
-    SDL_Surface *img;
-    SDL_Rect pos1,pos2,pos3;
-    Mix_Music *music;
-}background;
+}image;
 
 
 void add_pos(image* m,int pos,int x,int y,int w,int h);
@@ -31,4 +25,5 @@ void initBackground(image* background,char name[]);
 void liberer(image A);
 void afficher_selected(image *m,image *b,SDL_Surface *f,int *i,char selected[]);
 void afficher_deselected(image *m,image *b,SDL_Surface *f,int *i,char deselected[]);
+
 #endif

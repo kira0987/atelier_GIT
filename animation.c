@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include "menu_button.h"
+#include "image.h"
 #include <SDL/SDL_image.h>
 #include <string.h>
 
@@ -15,7 +15,7 @@ void fire_animation(image fire,image bg,SDL_Surface *fenetre,image button)
            fire.img=IMG_Load(strcat(num,".png"));
            SDL_BlitSurface(bg.img,&fire.pos2,fenetre,&fire.pos1);
            SDL_BlitSurface(fire.img,NULL,fenetre,&fire.pos1);
-           SDL_UpdateRect(fenetre,)
+           SDL_UpdateRect(fenetre,);
 
         }
 }
